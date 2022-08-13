@@ -29,6 +29,7 @@ function love.update(dt)
 end    
 
 function love.draw()
+    
     love.graphics.draw(sprites.sky, 0, 0)
 
     love.graphics.setColor(1, 1, 1)
@@ -41,7 +42,6 @@ function love.draw()
 
     elseif gameState == 2 then
         love.graphics.draw(sprites.target, target.x-target.radius, target.y-target.radius)
-
     end
 
     love.graphics.draw(sprites.crosshairs, love.mouse.getX()-20, love.mouse.getY()-20)
@@ -49,6 +49,7 @@ function love.draw()
 end
 
 function love.mousepressed(x, y, button)
+    
     if gameState == 2 then
 
         local mouseToTarget = distanceBetween(x, y, target.x, target.y)
@@ -66,7 +67,6 @@ function love.mousepressed(x, y, button)
 
         elseif score > 0 then
         	score = score - 1
-
         end
 
     elseif button == 1 and gameState == 1 then
@@ -75,6 +75,7 @@ function love.mousepressed(x, y, button)
         score = 0
         
     end
+    
 end
 
 function distanceBetween(x1, y1, x2, y2)
